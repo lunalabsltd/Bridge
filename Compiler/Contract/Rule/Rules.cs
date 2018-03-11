@@ -81,15 +81,15 @@ namespace Bridge.Contract
                 rules.Add(memberRule);
             }
 
-            if (virtualRules != null && virtualRules.Length > 0)
-            {
-                rules.AddRange(virtualRules);
-            }
-
             if (classRules != null && classRules.Length > 0)
             {
                 rules.AddRange(classRules);
             }
+
+            if (virtualRules != null && virtualRules.Length > 0)
+            {
+                rules.AddRange(virtualRules);
+            }            
 
             if (interfaceRules != null && interfaceRules.Length > 0)
             {
