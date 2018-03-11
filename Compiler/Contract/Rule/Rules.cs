@@ -27,6 +27,7 @@ namespace Bridge.Contract
             CompilerRule[] classRules = null;
             CompilerRule[] assemblyRules = null;
             CompilerRule[] interfaceRules = null;
+            CompilerRule[] virtualRules = null;
 
             if (entity is IMember)
             {
@@ -44,7 +45,8 @@ namespace Bridge.Contract
                     classRules = Rules.GetClassRules(emitter, typeDef);
                 }
 
-                interfaceRules = Rules.GetVirtualMemberRules(emitter, entity);
+                virtualRules = Rules.GetVirtualMemberRules(emitter, entity);
+                interfaceRules = Rules.GetInterfaceMemberRules(emitter, entity);
             }
             else if (entity is ITypeDefinition)
             {
@@ -77,6 +79,11 @@ namespace Bridge.Contract
             if (memberRule != null)
             {
                 rules.Add(memberRule);
+            }
+
+            if (virtualRules != null && virtualRules.Length > 0)
+            {
+                rules.AddRange(virtualRules);
             }
 
             if (classRules != null && classRules.Length > 0)
@@ -200,19 +207,23 @@ namespace Bridge.Contract
         {
             var member = entity as IMember;
 
-            if (member != null)
+            if (member != null && member.IsOverride)
             {
-                if (member.IsOverride)
-                {
-                    var baseMember = InheritanceHelper.GetBaseMember(member);
-                    return new[] { Rules.Get(emitter, baseMember) };
-                }
+                var baseMember = InheritanceHelper.GetBaseMember(member);
+                return new[] { Rules.Get(emitter, baseMember) };
+            }
 
-                if (member.ImplementedInterfaceMembers.Count > 0)
-                {
-                    var interfaceMember = member.ImplementedInterfaceMembers.First();
-                    return Rules.GetClassRules(emitter, interfaceMember.DeclaringTypeDefinition);
-                }
+            return null;
+        }
+
+        private static CompilerRule[] GetInterfaceMemberRules(IEmitter emitter, IEntity entity)
+        {
+            var member = entity as IMember;
+
+            if (member != null && member.ImplementedInterfaceMembers.Count > 0)
+            {
+                var interfaceMember = member.ImplementedInterfaceMembers.First();
+                return Rules.GetClassRules(emitter, interfaceMember.DeclaringTypeDefinition);
             }
 
             return null;

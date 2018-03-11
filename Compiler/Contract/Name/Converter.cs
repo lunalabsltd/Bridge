@@ -634,6 +634,7 @@ namespace Bridge.Contract
             NameRule[] classRules = null;
             NameRule[] assemblyRules = null;
             NameRule[] interfaceRules = null;
+            NameRule[] virtualRules = null;
 
             if (semantic.Entity is IMember)
             {
@@ -651,7 +652,8 @@ namespace Bridge.Contract
                     classRules = NameConvertor.GetClassRules(semantic, typeDef);
                 }
 
-                interfaceRules = NameConvertor.GetVirtualMemberRules(semantic);
+                virtualRules = NameConvertor.GetVirtualMemberRules(semantic);
+                interfaceRules = NameConvertor.GetInterfaceMemberRules(semantic);
             }
             else if(semantic.Entity is ITypeDefinition)
             {
@@ -685,6 +687,11 @@ namespace Bridge.Contract
                 rules.Add(memberRule);
             }
 
+            if (virtualRules != null && virtualRules.Length > 0)
+            {
+                rules.AddRange(virtualRules);
+            }
+
             if (classRules != null && classRules.Length > 0)
             {
                 rules.AddRange(classRules);
@@ -707,25 +714,29 @@ namespace Bridge.Contract
         {
             var member = semantic.Entity as IMember;
 
-            if (member != null)
+            if (member != null && member.IsOverride)
             {
-                if (member.IsOverride)
+                var baseMember = InheritanceHelper.GetBaseMember(member);
+                var baseSemantic = NameSemantic.Create(baseMember, semantic.Emitter);
+                //do not remove baseName, it calculates AppliedRule
+                var baseName = baseSemantic.Name;
+                if (baseSemantic.AppliedRule != null)
                 {
-                    var baseMember = InheritanceHelper.GetBaseMember(member);
-                    var baseSemantic = NameSemantic.Create(baseMember, semantic.Emitter);
-                    //do not remove baseName, it calculates AppliedRule
-                    var baseName = baseSemantic.Name;
-                    if (baseSemantic.AppliedRule != null)
-                    {
-                        return new[] { baseSemantic.AppliedRule };
-                    }
+                    return new[] { baseSemantic.AppliedRule };
                 }
+            }
 
-                if (member.ImplementedInterfaceMembers.Count > 0)
-                {
-                    var interfaceMember = member.ImplementedInterfaceMembers.First();
-                    return NameConvertor.GetClassRules(new NameSemantic { Emitter = semantic.Emitter }, interfaceMember.DeclaringTypeDefinition);
-                }
+            return null;
+        }
+
+        private static NameRule[] GetInterfaceMemberRules(NameSemantic semantic)
+        {
+            var member = semantic.Entity as IMember;
+
+            if (member != null && member.ImplementedInterfaceMembers.Count > 0)
+            {
+                var interfaceMember = member.ImplementedInterfaceMembers.First();
+                return NameConvertor.GetClassRules(new NameSemantic { Emitter = semantic.Emitter }, interfaceMember.DeclaringTypeDefinition);
             }
 
             return null;

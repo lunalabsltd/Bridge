@@ -29671,6 +29671,44 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440", {
+        statics: {
+            methods: {
+                TestRulesForOverride: function () {
+                    var writer = new System.IO.StringWriter.ctor();
+                    Bridge.Test.NUnit.Assert.AreEqual("", Bridge.toString(writer));
+
+                    var writer1 = new System.IO.StringWriter.ctor();
+                    Bridge.Test.NUnit.Assert.AreEqual("", writer1.toString());
+
+                    var o = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class1();
+                    Bridge.Test.NUnit.Assert.AreEqual("test1", Bridge.toString(o));
+
+                    o = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class2();
+                    Bridge.Test.NUnit.Assert.AreEqual("test2", Bridge.toString(o));
+                }
+            }
+        }
+    });
+
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class1", {
+        $kind: "nested class",
+        methods: {
+            toString: function () {
+                return "test1";
+            }
+        }
+    });
+
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class2", {
+        $kind: "nested class",
+        methods: {
+            toString: function () {
+                return "test2";
+            }
+        }
+    });
+
     /**
      * The test here consists in checking DateTime.Add() returns the expected
      values when negative.

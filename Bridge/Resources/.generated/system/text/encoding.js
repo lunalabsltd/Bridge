@@ -219,10 +219,10 @@
             GetEncoding: function () {
                 return System.Text.Encoding.GetEncoding(this.CodePage);
             },
-            GetHashCode: function () {
+            getHashCode: function () {
                 return this.CodePage;
             },
-            Equals: function (o) {
+            equals: function (o) {
                 var that = Bridge.as(o, System.Text.EncodingInfo);
                 return System.Nullable.eq(this.CodePage, (that != null ? that.CodePage : null));
             }
