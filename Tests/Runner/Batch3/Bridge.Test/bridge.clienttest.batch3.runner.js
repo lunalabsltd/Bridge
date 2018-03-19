@@ -16134,7 +16134,7 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest.Batch3", function ($asm, globals)
             methods: {
                 TestRulesForOverride: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3440, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestRulesForOverride()", $t.Line = "27", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3440, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestRulesForOverride()", $t.Line = "43", $t));
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.TestRulesForOverride();
                 }
             }

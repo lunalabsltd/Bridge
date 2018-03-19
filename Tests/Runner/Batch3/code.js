@@ -29671,26 +29671,50 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    /**
+     * The test here consists in ensuring overrides to ToString() method
+     works in some situations.
+     *
+     * @public
+     * @class Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440
+     */
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440", {
         statics: {
             methods: {
+                /**
+                 * Test the custom classes above and also System.IO's
+                 [String/Text]Writer's ToString() call.
+                 *
+                 * @static
+                 * @public
+                 * @this Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440
+                 * @memberof Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440
+                 * @return  {void}
+                 */
                 TestRulesForOverride: function () {
                     var writer = new System.IO.StringWriter.ctor();
-                    Bridge.Test.NUnit.Assert.AreEqual("", Bridge.toString(writer));
+                    Bridge.Test.NUnit.Assert.AreEqual("", Bridge.toString(writer), "Casting to TextWriter works.");
 
                     var writer1 = new System.IO.StringWriter.ctor();
-                    Bridge.Test.NUnit.Assert.AreEqual("", writer1.toString());
+                    Bridge.Test.NUnit.Assert.AreEqual("", writer1.toString(), "Without cast works.");
 
                     var o = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class1();
-                    Bridge.Test.NUnit.Assert.AreEqual("test1", Bridge.toString(o));
+                    Bridge.Test.NUnit.Assert.AreEqual("test1", Bridge.toString(o), "Conventionless class' ToString() works.");
 
                     o = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class2();
-                    Bridge.Test.NUnit.Assert.AreEqual("test2", Bridge.toString(o));
+                    Bridge.Test.NUnit.Assert.AreEqual("test2", Bridge.toString(o), "Convention-specified class ToString() works.");
                 }
             }
         }
     });
 
+    /**
+     * This is a simple class with no convention, overriding the
+     ToString() method.
+     *
+     * @public
+     * @class Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class1
+     */
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class1", {
         $kind: "nested class",
         methods: {
@@ -29700,6 +29724,13 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    /**
+     * A class implementing the convention attribute and similarly
+     overriding the ToString() method.
+     *
+     * @public
+     * @class Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class2
+     */
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3440.Class2", {
         $kind: "nested class",
         methods: {
