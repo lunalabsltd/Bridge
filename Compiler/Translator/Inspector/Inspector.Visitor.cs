@@ -172,11 +172,11 @@ namespace Bridge.Translator
                                 IEnumerable<IMember> baseMembers;
                                 if (interfaceMember.SymbolKind == SymbolKind.Accessor)
                                 {
-                                    baseMembers = baseType.GetAccessors(null, GetMemberOptions.IgnoreInheritedMembers).Where(m => m.Name == interfaceMember.Name && m.ReturnType.Equals(interfaceMember.ReturnType));
+                                    baseMembers = baseType.GetAccessors(null, GetMemberOptions.IgnoreInheritedMembers).Where(m => m.Name == interfaceMember.Name && TypeComparer.Equals(m.ReturnType, interfaceMember.ReturnType));
                                 }
                                 else
                                 {
-                                    baseMembers = baseType.GetMembers(null, GetMemberOptions.IgnoreInheritedMembers).Where(m => m.Name == interfaceMember.Name && m.ReturnType.Equals(interfaceMember.ReturnType));
+                                    baseMembers = baseType.GetMembers(null, GetMemberOptions.IgnoreInheritedMembers).Where(m => m.Name == interfaceMember.Name && TypeComparer.Equals(m.ReturnType, interfaceMember.ReturnType));
                                 }
 
                                 foreach (IMember baseMember in baseMembers)
