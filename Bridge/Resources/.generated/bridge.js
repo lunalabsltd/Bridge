@@ -1570,7 +1570,7 @@
                 throw new System.NullReferenceException.$ctor1("instance is null");
             }
 
-            if (T) {
+            if (T) {               
                 var type = Bridge.getType(instance);
                 return Bridge.Reflection.isAssignableFrom(T, type) ? type : T;
             }

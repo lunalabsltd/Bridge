@@ -33536,6 +33536,34 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612", {
+        statics: {
+            methods: {
+                SetModeStronglyTyped: function (mode) {
+                    Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612.SetMode(Bridge.box(mode, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612.Mode, System.Nullable.toStringFn(System.Enum.toStringFn(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612.Mode)), System.Nullable.getHashCode));
+                },
+                SetMode: function (mode) {
+                    var $t;
+                    Bridge.Test.NUnit.Assert.AreEqual("Null", Bridge.unbox(($t = mode, $t != null ? $t : "Null")));
+                },
+                TestEnumNullable: function () {
+                    Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612.SetModeStronglyTyped(null);
+                }
+            }
+        }
+    });
+
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612.Mode", {
+        $kind: "nested enum",
+        statics: {
+            fields: {
+                Slow: 0,
+                Medium: 1,
+                Fast: 2
+            }
+        }
+    });
+
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge381", {
         statics: {
             methods: {
