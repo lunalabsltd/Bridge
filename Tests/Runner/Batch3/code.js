@@ -41,10 +41,10 @@ var Bridge3494_A = (function () {
 
 /**
  * Bridge Test library - test github issues up to #1999
- * @version 17.1.0
+ * @version 17.1.1
  * @author Object.NET, Inc.
  * @copyright Copyright 2008-2018 Object.NET, Inc.
- * @compiler Bridge.NET 17.1.0
+ * @compiler Bridge.NET 17.1.1
  */
 Bridge.assembly("Bridge.ClientTest.Batch3", function ($asm, globals) {
     "use strict";
@@ -33561,6 +33561,54 @@ Bridge.$N1391Result =                     r;
                 Medium: 1,
                 Fast: 2
             }
+        }
+    });
+
+    /**
+     * The tests here consists in ensuring emission order of local functions
+     obey the order they are actually entered in code.
+     *
+     * @public
+     * @class Bridge.ClientTest.Batch3.BridgeIssues.Bridge3625
+     */
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3625", {
+        statics: {
+            methods: {
+                /**
+                 * Tests the order by declaring two local funcions, in such a way
+                 that the second calls the first. If the local function is not
+                 emitted in the correct order, the return value would not match
+                 the expected one.
+                 *
+                 * @static
+                 * @public
+                 * @this Bridge.ClientTest.Batch3.BridgeIssues.Bridge3625
+                 * @memberof Bridge.ClientTest.Batch3.BridgeIssues.Bridge3625
+                 * @return  {void}
+                 */
+                TestLocalFns: function () {
+                    var Two = null;
+                    var One = null;
+
+
+
+                    One = $asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge3625.f1;
+
+                    Bridge.Test.NUnit.Assert.AreEqual("One", One("One"), "First local function call matches expected result.");
+                    Two = function (msg) {
+                        return "Two:" + (One(msg) || "");
+                    };
+                    Bridge.Test.NUnit.Assert.AreEqual("Two:One", Two("One"), "Second local function call matches expected result.");
+                }
+            }
+        }
+    });
+
+    Bridge.ns("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3625", $asm.$);
+
+    Bridge.apply($asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge3625, {
+        f1: function (msg) {
+            return msg;
         }
     });
 

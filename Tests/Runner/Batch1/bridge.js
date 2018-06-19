@@ -1,5 +1,5 @@
 /**
- * @version   : 17.1.0 - Bridge.NET
+ * @version   : 17.1.1 - Bridge.NET
  * @author    : Object.NET, Inc. http://bridge.net/
  * @copyright : Copyright 2008-2018 Object.NET, Inc. http://object.net/
  * @license   : See license.txt and https://github.com/bridgedotnet/Bridge/blob/master/LICENSE.md
@@ -2032,7 +2032,7 @@
             };
         }());
     } else {
-        core.setImmediate = globals.setImmediate;
+        core.setImmediate = globals.setImmediate.bind(globals);
     }
 
     globals.Bridge = core;
@@ -3393,8 +3393,8 @@
     // @source SystemAssemblyVersion.js
 
     Bridge.init(function () {
-        Bridge.SystemAssembly.version = "17.1.0";
-        Bridge.SystemAssembly.compiler = "17.1.0";
+        Bridge.SystemAssembly.version = "17.1.1";
+        Bridge.SystemAssembly.compiler = "17.1.1";
     });
 
     Bridge.define("Bridge.Utils.SystemAssemblyVersion");
