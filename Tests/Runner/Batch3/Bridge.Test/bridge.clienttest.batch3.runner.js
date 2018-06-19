@@ -17087,7 +17087,7 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest.Batch3", function ($asm, globals)
             methods: {
                 TestEnumNullable: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3612, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestEnumNullable()", $t.Line = "30", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3612, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestEnumNullable()", $t.Line = "38", $t));
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612.TestEnumNullable();
                 }
             }

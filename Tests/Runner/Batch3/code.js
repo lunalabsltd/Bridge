@@ -33536,6 +33536,13 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    /**
+     * The test here consists in ensuring 'Managed' boxing rule works on
+     nullable enums.
+     *
+     * @public
+     * @class Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612
+     */
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612", {
         statics: {
             methods: {
@@ -33546,6 +33553,16 @@ Bridge.$N1391Result =                     r;
                     var $t;
                     Bridge.Test.NUnit.Assert.AreEqual("Null", Bridge.unbox(($t = mode, $t != null ? $t : "Null")));
                 },
+                /**
+                 * Ensures a null "nullable enum" is emitted as "Null" instead of
+                 throwing an exception.
+                 *
+                 * @static
+                 * @public
+                 * @this Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612
+                 * @memberof Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612
+                 * @return  {void}
+                 */
                 TestEnumNullable: function () {
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge3612.SetModeStronglyTyped(null);
                 }
