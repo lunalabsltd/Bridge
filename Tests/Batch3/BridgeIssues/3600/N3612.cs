@@ -6,6 +6,10 @@ using System.Linq;
 
 namespace Bridge.ClientTest.Batch3.BridgeIssues
 {
+    /// <summary>
+    /// The test here consists in ensuring 'Managed' boxing rule works on
+    /// nullable enums.
+    /// </summary>
     [TestFixture(TestNameFormat = "#3612 - {0}")]
     [Rules(Boxing = BoxingRule.Managed)]
     public class Bridge3612
@@ -27,6 +31,10 @@ namespace Bridge.ClientTest.Batch3.BridgeIssues
             Assert.AreEqual("Null", mode ?? "Null");
         }
 
+        /// <summary>
+        /// Ensures a null "nullable enum" is emitted as "Null" instead of
+        /// throwing an exception.
+        /// </summary>
         [Test]
         public static void TestEnumNullable()
         {
