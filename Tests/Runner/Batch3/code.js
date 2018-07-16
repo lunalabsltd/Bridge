@@ -34351,6 +34351,19 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3667", {
+        statics: {
+            methods: {
+                TestNullableTuple: function () {
+                    var val = new (System.ValueTuple$2(System.String,System.String)).$ctor1("test1", "test2");
+
+                    Bridge.Test.NUnit.Assert.AreEqual("test1", System.Nullable.getValue(val).Item1);
+                    Bridge.Test.NUnit.Assert.AreEqual("test1", val != null ? System.Nullable.getValue(val).Item1 : null);
+                }
+            }
+        }
+    });
+
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge381", {
         statics: {
             methods: {
