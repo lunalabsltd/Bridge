@@ -34412,14 +34412,20 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    /**
+     * Ensures fetching nullable variable value with the null conditional operator works.
+     *
+     * @public
+     * @class Bridge.ClientTest.Batch3.BridgeIssues.Bridge3667
+     */
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3667", {
         statics: {
             methods: {
                 TestNullableTuple: function () {
                     var val = new (System.ValueTuple$2(System.String,System.String)).$ctor1("test1", "test2");
 
-                    Bridge.Test.NUnit.Assert.AreEqual("test1", System.Nullable.getValue(val).Item1);
-                    Bridge.Test.NUnit.Assert.AreEqual("test1", val != null ? System.Nullable.getValue(val).Item1 : null);
+                    Bridge.Test.NUnit.Assert.AreEqual("test1", System.Nullable.getValue(val).Item1, "Fetching value via the nullable's .Value property works.");
+                    Bridge.Test.NUnit.Assert.AreEqual("test1", val != null ? System.Nullable.getValue(val).Item1 : null, "Fetching value using the the null conditional operator works.");
                 }
             }
         }
