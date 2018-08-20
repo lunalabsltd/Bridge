@@ -2444,7 +2444,8 @@ Bridge.assembly("Bridge.ClientTest.Batch3", function ($asm, globals) {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -2844,7 +2845,8 @@ Bridge.assembly("Bridge.ClientTest.Batch3", function ($asm, globals) {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -3471,7 +3473,8 @@ Bridge.assembly("Bridge.ClientTest.Batch3", function ($asm, globals) {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }},
+                    }
+                },
                 TestMethods: function (o) {
                     var $t;
                     if (o == null) {
@@ -3489,7 +3492,8 @@ Bridge.assembly("Bridge.ClientTest.Batch3", function ($asm, globals) {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }},
+                    }
+                },
                 let: function () {
                     return 5;
                 },
@@ -3959,7 +3963,8 @@ Bridge.assembly("Bridge.ClientTest.Batch3", function ($asm, globals) {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -4133,7 +4138,8 @@ Bridge.assembly("Bridge.ClientTest.Batch3", function ($asm, globals) {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -7123,7 +7129,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t, System.IDisposable)) {
                                 $t.System$IDisposable$Dispose();
                             }
-                        }}, "(IEnumerable)new[] { \"h\" } foreach int");
+                        }
+                    }, "(IEnumerable)new[] { \"h\" } foreach int");
 
                     Bridge.Test.NUnit.Assert.Throws$2(System.InvalidCastException, function () {
                         var $t;
@@ -7137,7 +7144,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t, System.IDisposable)) {
                                 $t.System$IDisposable$Dispose();
                             }
-                        }}, "(IEnumerable)new[] { \"g\" } foreach char");
+                        }
+                    }, "(IEnumerable)new[] { \"g\" } foreach char");
 
                     $t = Bridge.getEnumerator(Bridge.cast(System.Array.init(["k"], System.String), System.Collections.IEnumerable));
                     try {
@@ -7150,6 +7158,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     $t1 = Bridge.getEnumerator(Bridge.cast(System.Array.init(["j"], System.String), System.Collections.IEnumerable));
                     try {
                         while ($t1.moveNext()) {
@@ -7161,6 +7170,7 @@ Bridge.$N1391Result =                     r;
                             $t1.System$IDisposable$Dispose();
                         }
                     }
+
                     $t2 = Bridge.getEnumerator(Bridge.cast(System.Array.init([($t3 = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge1467.SomeClass1(), $t3.Value = 1, $t3)], Bridge.ClientTest.Batch3.BridgeIssues.Bridge1467.SomeClass1), System.Collections.IEnumerable));
                     try {
                         while ($t2.moveNext()) {
@@ -7172,6 +7182,7 @@ Bridge.$N1391Result =                     r;
                             $t2.System$IDisposable$Dispose();
                         }
                     }
+
                     $t3 = Bridge.getEnumerator(Bridge.cast(System.Array.init([($t4 = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge1467.SomeClass2(), $t4.Value = 2, $t4)], Bridge.ClientTest.Batch3.BridgeIssues.Bridge1467.SomeClass2), System.Collections.IEnumerable));
                     try {
                         while ($t3.moveNext()) {
@@ -7183,6 +7194,7 @@ Bridge.$N1391Result =                     r;
                             $t3.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.Throws$2(System.InvalidCastException, function () {
                         var $t5, $t6;
                         $t5 = Bridge.getEnumerator(Bridge.cast(System.Array.init([($t6 = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge1467.AnotherClass(), $t6.Value = 3, $t6)], Bridge.ClientTest.Batch3.BridgeIssues.Bridge1467.AnotherClass), System.Collections.IEnumerable));
@@ -7195,7 +7207,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t5, System.IDisposable)) {
                                 $t5.System$IDisposable$Dispose();
                             }
-                        }}, "(IEnumerable)new[] { new AnotherClass { Value = 3 } } foreach SomeClass1");
+                        }
+                    }, "(IEnumerable)new[] { new AnotherClass { Value = 3 } } foreach SomeClass1");
                 }
             }
         }
@@ -7892,7 +7905,8 @@ Bridge.$N1391Result =                     r;
                     if (Bridge.is($t, System.IDisposable)) {
                         $t.System$IDisposable$Dispose();
                     }
-                }}
+                }
+            }
         }
     });
 
@@ -8835,7 +8849,8 @@ Bridge.$N1391Result =                     r;
                     if (Bridge.is($t, System.IDisposable)) {
                         $t.System$IDisposable$Dispose();
                     }
-                }}
+                }
+            }
         }
     });
 
@@ -9042,7 +9057,8 @@ Bridge.$N1391Result =                     r;
                     if (Bridge.is($t, System.IDisposable)) {
                         $t.System$IDisposable$Dispose();
                     }
-                }},
+                }
+            },
             TestCollectionWithAdd_BeforeCS6: function () {
                 Bridge.ClientTest.Batch3.BridgeIssues.Bridge1712.Buffer = "";
                 var collection = $asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge1712.f2(new Bridge.ClientTest.Batch3.BridgeIssues.Bridge1712.MSDNCollectionWithAdd());
@@ -11104,7 +11120,8 @@ Bridge.$N1391Result =                     r;
                     if (Bridge.is($t, System.IDisposable)) {
                         $t.System$IDisposable$Dispose();
                     }
-                }}
+                }
+            }
         }
     });
 
@@ -11770,6 +11787,7 @@ Bridge.$N1391Result =                     r;
                         $t.System$IDisposable$Dispose();
                     }
                 }
+
                 $t1 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge1882.GetArray());
                 try {
                     while ($t1.moveNext()) {
@@ -11781,6 +11799,7 @@ Bridge.$N1391Result =                     r;
                         $t1.System$IDisposable$Dispose();
                     }
                 }
+
                 $t2 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge1882.GetArrayExternal());
                 try {
                     while ($t2.moveNext()) {
@@ -11792,6 +11811,7 @@ Bridge.$N1391Result =                     r;
                         $t2.System$IDisposable$Dispose();
                     }
                 }
+
                 $t3 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge1882.GetArrayExternal());
                 try {
                     while ($t3.moveNext()) {
@@ -11802,7 +11822,8 @@ Bridge.$N1391Result =                     r;
                     if (Bridge.is($t3, System.IDisposable)) {
                         $t3.System$IDisposable$Dispose();
                     }
-                }},
+                }
+            },
             TestGenericClassCastForList: function () {
                 var $t, $t1, $t2, $t3;
                 $t = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge1882.GetList());
@@ -11816,6 +11837,7 @@ Bridge.$N1391Result =                     r;
                         $t.System$IDisposable$Dispose();
                     }
                 }
+
                 $t1 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge1882.GetList());
                 try {
                     while ($t1.moveNext()) {
@@ -11827,6 +11849,7 @@ Bridge.$N1391Result =                     r;
                         $t1.System$IDisposable$Dispose();
                     }
                 }
+
                 $t2 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge1882.GetListExternal());
                 try {
                     while ($t2.moveNext()) {
@@ -11838,6 +11861,7 @@ Bridge.$N1391Result =                     r;
                         $t2.System$IDisposable$Dispose();
                     }
                 }
+
                 $t3 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge1882.GetListExternal());
                 try {
                     while ($t3.moveNext()) {
@@ -11848,7 +11872,8 @@ Bridge.$N1391Result =                     r;
                     if (Bridge.is($t3, System.IDisposable)) {
                         $t3.System$IDisposable$Dispose();
                     }
-                }}
+                }
+            }
         }
     });
 
@@ -12633,7 +12658,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t1, System.IDisposable)) {
                                 $t1.System$IDisposable$Dispose();
                             }
-                        }Bridge.Test.NUnit.Assert.AreEqual(false, newJObj1.isGeneric);
+                        }
+                        Bridge.Test.NUnit.Assert.AreEqual(false, newJObj1.isGeneric);
                         Bridge.Test.NUnit.Assert.AreEqual(1, newJObj1.dic.count);
 
                         var newJObj2 = $asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge1948.f1(new Bridge.ClientTest.Batch3.BridgeIssues.Bridge1948.AddObj());
@@ -12646,14 +12672,16 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t2, System.IDisposable)) {
                                 $t2.System$IDisposable$Dispose();
                             }
-                        }Bridge.Test.NUnit.Assert.AreEqual(true, Bridge.cast(newJObj2, Bridge.ClientTest.Batch3.BridgeIssues.Bridge1948.AddObj).isGeneric);
+                        }
+                        Bridge.Test.NUnit.Assert.AreEqual(true, Bridge.cast(newJObj2, Bridge.ClientTest.Batch3.BridgeIssues.Bridge1948.AddObj).isGeneric);
                         Bridge.Test.NUnit.Assert.AreEqual(1, Bridge.cast(newJObj2, Bridge.ClientTest.Batch3.BridgeIssues.Bridge1948.AddObj).dic.count);
                     }
                 } finally {
                     if (Bridge.is($t, System.IDisposable)) {
                         $t.System$IDisposable$Dispose();
                     }
-                }}
+                }
+            }
         }
     });
 
@@ -12935,7 +12963,8 @@ Bridge.$N1391Result =                     r;
                     if (Bridge.is($t, System.IDisposable)) {
                         $t.System$IDisposable$Dispose();
                     }
-                }}
+                }
+            }
         }
     });
 
@@ -14946,7 +14975,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(0, count3, "numbers3.Except(numbers4) should be empty");
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(0, count3, "numbers3.Except(numbers4) should be empty");
 
                     var numbers5 = System.Array.init([2.0], System.Double);
                     var numbers6 = System.Array.init([2.2], System.Double);
@@ -14962,7 +14992,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t1, System.IDisposable)) {
                             $t1.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(1, count5);
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(1, count5);
 
                     var numbers7 = System.Array.init([], System.Double);
                     var numbers8 = System.Array.init([2.0], System.Double);
@@ -14978,7 +15009,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t2, System.IDisposable)) {
                             $t2.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(0, count7, "numbers7.Except(numbers8) should be empty");
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(0, count7, "numbers7.Except(numbers8) should be empty");
 
                     var numbers9 = System.Array.init([7.0], System.Double);
                     var numbers10 = System.Array.init([], System.Double);
@@ -14994,7 +15026,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t3, System.IDisposable)) {
                             $t3.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(1, count9);
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(1, count9);
 
                     var numbers11 = System.Array.init([], System.Double);
                     var numbers12 = System.Array.init([], System.Double);
@@ -15009,7 +15042,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t4, System.IDisposable)) {
                             $t4.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(0, count11, "numbers11.Except(numbers12) should be empty");
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(0, count11, "numbers11.Except(numbers12) should be empty");
                 }
             }
         }
@@ -15056,7 +15090,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(0, count3, "numbers3.Intersect(numbers4) should be empty");
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(0, count3, "numbers3.Intersect(numbers4) should be empty");
 
                     var numbers5 = System.Array.init([2.0], System.Double);
                     var numbers6 = System.Array.init([2.0], System.Double);
@@ -15072,7 +15107,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t1, System.IDisposable)) {
                             $t1.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(1, count5);
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(1, count5);
 
                     var numbers7 = System.Array.init([], System.Double);
                     var numbers8 = System.Array.init([2.0], System.Double);
@@ -15088,7 +15124,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t2, System.IDisposable)) {
                             $t2.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(0, count7, "numbers7.Intersect(numbers8) should be empty");
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(0, count7, "numbers7.Intersect(numbers8) should be empty");
 
                     var numbers9 = System.Array.init([7.0], System.Double);
                     var numbers10 = System.Array.init([], System.Double);
@@ -15104,7 +15141,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t3, System.IDisposable)) {
                             $t3.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(0, count9);
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(0, count9);
 
                     var numbers11 = System.Array.init([], System.Double);
                     var numbers12 = System.Array.init([], System.Double);
@@ -15119,7 +15157,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t4, System.IDisposable)) {
                             $t4.System$IDisposable$Dispose();
                         }
-                    }Bridge.Test.NUnit.Assert.AreEqual(0, count11, "numbers11.Intersect(numbers12) should be empty");
+                    }
+                    Bridge.Test.NUnit.Assert.AreEqual(0, count11, "numbers11.Intersect(numbers12) should be empty");
                 }
             }
         }
@@ -17226,7 +17265,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }},
+                    }
+                },
                 TestLinqLookup: function () {
                     var query = System.Linq.Enumerable.from(Bridge.ClientTest.Batch3.BridgeIssues.Bridge2355.Plants.Flowers).toLookup($asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge2355.f1);
 
@@ -17369,7 +17409,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -17808,7 +17849,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }},
+                    }
+                },
                 TestForEachClone: function () {
                     var x = System.Array.init([new Bridge.ClientTest.Batch3.BridgeIssues.Bridge2454.MyStruct.$ctor1(1, 10)], Bridge.ClientTest.Batch3.BridgeIssues.Bridge2454.MyStruct);
                     Bridge.Test.NUnit.Assert.AreEqual("1-10", x[System.Array.index(0, x)].toString());
@@ -22776,7 +22818,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }},
+                    }
+                },
                 LogDates: function (a, b) {
                     Bridge.Test.NUnit.Assert.AreEqual(2017, System.DateTime.getYear(a));
                     Bridge.Test.NUnit.Assert.AreEqual(2018, System.DateTime.getYear(b));
@@ -23945,6 +23988,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     $t1 = Bridge.getEnumerator(System.Array.create(false, null, System.Boolean, 1, 1));
                     try {
                         while ($t1.moveNext()) {
@@ -23956,6 +24000,7 @@ Bridge.$N1391Result =                     r;
                             $t1.System$IDisposable$Dispose();
                         }
                     }
+
                     $t2 = Bridge.getEnumerator(System.Array.create(System.Int64(0), null, System.Int64, 1, 1));
                     try {
                         while ($t2.moveNext()) {
@@ -23969,6 +24014,7 @@ Bridge.$N1391Result =                     r;
                             $t2.System$IDisposable$Dispose();
                         }
                     }
+
                     $t3 = Bridge.getEnumerator(System.Array.create(System.Decimal(0.0), null, System.Decimal, 1, 1));
                     try {
                         while ($t3.moveNext()) {
@@ -23982,6 +24028,7 @@ Bridge.$N1391Result =                     r;
                             $t3.System$IDisposable$Dispose();
                         }
                     }
+
                     $t4 = Bridge.getEnumerator(System.Array.create(function (){
                         return System.DateTime.getDefaultValue();
                     }, null, System.DateTime, 1, 1));
@@ -23997,6 +24044,7 @@ Bridge.$N1391Result =                     r;
                             $t4.System$IDisposable$Dispose();
                         }
                     }
+
                     $t5 = Bridge.getEnumerator(System.Array.create(null, null, Bridge.ClientTest.Batch3.BridgeIssues.Bridge2886.Class1, 1, 1));
                     try {
                         while ($t5.moveNext()) {
@@ -24008,7 +24056,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t5, System.IDisposable)) {
                             $t5.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -24648,7 +24697,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -25891,6 +25941,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     $t2 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3131.actions);
                     try {
                         while ($t2.moveNext()) {
@@ -25902,6 +25953,7 @@ Bridge.$N1391Result =                     r;
                             $t2.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("111213212223313233", s);
                 },
                 TestCloseCaptureFoldedCycle2: function () {
@@ -25932,7 +25984,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t, System.IDisposable)) {
                                 $t.System$IDisposable$Dispose();
                             }
-                        }}
+                        }
+                    }
 
                     $t2 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3131.actions);
                     try {
@@ -25945,6 +25998,7 @@ Bridge.$N1391Result =                     r;
                             $t2.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("211212213221222223231232233211212213221222223231232233", s);
                 }
             }
@@ -26629,6 +26683,7 @@ Bridge.$N1391Result =                     r;
                             $t2.System$IDisposable$Dispose();
                         }
                     }
+
                     // By the time it was broken, (bridgedotnet/Bridge#3226) the result
                     // was wrong: 100010011
                     Bridge.Test.NUnit.Assert.AreEqual("100010001", s, "Result matches '100010001'");
@@ -27468,6 +27523,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.True(atLeastOnce, "Assembly attribute has been found at least once among the assemblies searched.");
                 }
             }
@@ -28151,7 +28207,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }},
+                    }
+                },
                 /**
                  * Should be verified in Microsoft Edge 41.16299.15.0 (Microsoft EdgeHTML 16.16299).
                  Checks that "Bridge.equals()" is able to process HTML attributes.
@@ -30729,7 +30786,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t, System.IDisposable)) {
                                 $t.System$IDisposable$Dispose();
                             }
-                        }}
+                        }
+                    }
 
                     // For every available world time zone, check if a given date - its time zone offset results in the time zone offset itself.
                     $t1 = Bridge.getEnumerator(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3478.WorldTZList);
@@ -30755,7 +30813,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t1, System.IDisposable)) {
                             $t1.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -31155,7 +31214,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -31392,6 +31452,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("b", Bridge.ClientTest.Batch3.BridgeIssues.Bridge3519.SMap.get("a"), "'a' still maps to 'b'");
                     Bridge.Test.NUnit.Assert.AreEqual("d", Bridge.ClientTest.Batch3.BridgeIssues.Bridge3519.SMap.get("c"), "'c' still maps to 'd'");
 
@@ -34821,6 +34882,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     $t1 = Bridge.getEnumerator(numbers);
                     try {
                         while ($t1.moveNext()) {
@@ -34832,6 +34894,7 @@ Bridge.$N1391Result =                     r;
                             $t1.System$IDisposable$Dispose();
                         }
                     }
+
                     $t2 = Bridge.getEnumerator(numbers);
                     try {
                         while ($t2.moveNext()) {
@@ -34843,6 +34906,7 @@ Bridge.$N1391Result =                     r;
                             $t2.System$IDisposable$Dispose();
                         }
                     }
+
                     $t3 = Bridge.getEnumerator(numbers);
                     try {
                         while ($t3.moveNext()) {
@@ -34854,6 +34918,7 @@ Bridge.$N1391Result =                     r;
                             $t3.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual(24, sum, "Bridge502 sum");
                 }
             }
@@ -35923,6 +35988,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     $t1 = Bridge.getEnumerator(handlers);
                     try {
                         while ($t1.moveNext()) {
@@ -35934,6 +36000,7 @@ Bridge.$N1391Result =                     r;
                             $t1.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("123", result, "Bridge563 No block foreach loop");
 
                     i = 0;
@@ -35954,6 +36021,7 @@ Bridge.$N1391Result =                     r;
                             $t2.System$IDisposable$Dispose();
                         }
                     }
+
                     $t3 = Bridge.getEnumerator(handlers);
                     try {
                         while ($t3.moveNext()) {
@@ -35965,6 +36033,7 @@ Bridge.$N1391Result =                     r;
                             $t3.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("123", result, "Bridge563 block foreach loop");
                 },
                 TesFor: function () {
@@ -35994,6 +36063,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("123", result, "Bridge563 For loop");
                 }
             }
@@ -37116,6 +37186,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("abc", text, "Bridge634: foreach works for HashSet");
                 },
                 TestUseCase2: function () {
@@ -37686,7 +37757,8 @@ Bridge.$N1391Result =                     r;
                                     if (Bridge.is($t1, System.IDisposable)) {
                                         $t1.System$IDisposable$Dispose();
                                     }
-                                }};
+                                }
+                            };
 
                             func(n);
                         }
@@ -37695,6 +37767,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     return sum;
                 }
             }
@@ -38553,7 +38626,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t, System.IDisposable)) {
                                 $t.System$IDisposable$Dispose();
                             }
-                        }var h = function () {
+                        }
+                        var h = function () {
                             sum = Bridge.Int.mul(sum, 2);
                         };
                         h();
@@ -38720,7 +38794,8 @@ Bridge.$N1391Result =                     r;
                             if (Bridge.is($t, System.IDisposable)) {
                                 $t.System$IDisposable$Dispose();
                             }
-                        }}
+                        }
+                    }
 
                     Bridge.Test.NUnit.Assert.AreEqual(6, sum, "Bridge726");
                 }
@@ -38846,7 +38921,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }return result;
+                    }
+                    return result;
                 }
             }
         }
@@ -39882,6 +39958,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual(3, result, "Bridge841");
                 }
             }
@@ -40140,6 +40217,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge882_Static.Sum = s;
                 }
             }
@@ -40169,6 +40247,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge882_Static.Bridge882_A_Static.Sum = s;
                 }
             }
@@ -40454,6 +40533,7 @@ Bridge.$N1391Result =                     r;
                                                 $t.System$IDisposable$Dispose();
                                             }
                                         }
+
                                         $task2 = Bridge.ClientTest.Batch3.BridgeIssues.Bridge906.myfunc();
                                         $step = 2;
                                         $task2.continueWith($asyncBody, true);
@@ -40516,6 +40596,7 @@ Bridge.$N1391Result =                     r;
                                                 $t.System$IDisposable$Dispose();
                                             }
                                         }
+
                                         $task2 = Bridge.ClientTest.Batch3.BridgeIssues.Bridge906.myfunc();
                                         $step = 2;
                                         $task2.continueWith($asyncBody, true);
@@ -41424,7 +41505,8 @@ Bridge.$N1391Result =                     r;
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    }}
+                    }
+                }
             }
         }
     });
@@ -41820,6 +41902,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual("123", result, "IEnumerator works");
                 },
                 N306: function () {
@@ -41976,6 +42059,7 @@ Bridge.$N1391Result =                     r;
                             $t.System$IDisposable$Dispose();
                         }
                     }
+
                     Bridge.Test.NUnit.Assert.AreEqual(2, _dictOfTests.count, "All items added");
                     Bridge.Test.NUnit.Assert.AreEqual("a", _dictOfTests.get("a").Id, "First element is a");
                     Bridge.Test.NUnit.Assert.AreEqual("b", _dictOfTests.get("b").Id, "Second element is b");
