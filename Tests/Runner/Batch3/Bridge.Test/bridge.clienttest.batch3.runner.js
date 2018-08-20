@@ -17551,7 +17551,7 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest.Batch3", function ($asm, globals)
             methods: {
                 TestNestedUsing: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3678, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestNestedUsing()", $t.Line = "40", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3678, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestNestedUsing()", $t.Line = "54", $t));
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678.TestNestedUsing();
                 }
             }

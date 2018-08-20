@@ -34431,6 +34431,12 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    /**
+     * Ensures nested using works in a yield resumable method.
+     *
+     * @public
+     * @class Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678
+     */
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678", {
         statics: {
             methods: {
@@ -34439,7 +34445,7 @@ Bridge.$N1391Result =                     r;
                     var b = System.Array.init(["4", "5", "6"], System.String);
                     var fn = $asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678.f1;
                     var result = Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678Extensions.Zipper(System.String, System.String, System.String, a, b, fn);
-                    Bridge.Test.NUnit.Assert.AreEqual("14.25.36", System.Linq.Enumerable.from(result).ToArray().join("."));
+                    Bridge.Test.NUnit.Assert.AreEqual("14.25.36", System.Linq.Enumerable.from(result).ToArray().join("."), "Nested usings in a yield resumable method produces valid javascript code.");
                 }
             }
         }
@@ -34453,9 +34459,34 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    /**
+     * @memberof System
+     * @callback System.Func
+     * @param   {A}    arg1    
+     * @param   {B}    arg2
+     * @return  {T}
+     */
+
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678Extensions", {
         statics: {
             methods: {
+                /**
+                 * Implements the scenario required to reproduce a potential malformed
+                 javascript output by exploring nested using statements within a
+                 yield resumable method.
+                 *
+                 * @static
+                 * @public
+                 * @this Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678Extensions
+                 * @memberof Bridge.ClientTest.Batch3.BridgeIssues.Bridge3678Extensions
+                 * @param   {Function}                                    A       
+                 * @param   {Function}                                    B       
+                 * @param   {Function}                                    T       
+                 * @param   {System.Collections.Generic.IEnumerable$1}    seqA    
+                 * @param   {System.Collections.Generic.IEnumerable$1}    seqB    
+                 * @param   {System.Func}                                 func
+                 * @return  {System.Collections.Generic.IEnumerable$1}
+                 */
                 Zipper: function (A, B, T, seqA, seqB, func) {
                     return new (Bridge.GeneratorEnumerable$1(T))(Bridge.fn.bind(this, function (A, B, T, seqA, seqB, func) {
                         var $step = 0,
@@ -45611,12 +45642,6 @@ Bridge.$N1391Result =                     r;
         },
         alias: ["Value", "Bridge$ClientTest$Batch3$BridgeIssues$Bridge3222$IProperty$1$" + Bridge.getTypeAlias(T) + "$Value$1"]
     }; });
-
-    /**
-     * @memberof System
-     * @callback System.Func
-     * @return  {Bridge.ClientTest.Batch3.BridgeIssues.Bridge3269.Cavy}
-     */
 
     /**
      * Parameter class, that implements the base interface above
