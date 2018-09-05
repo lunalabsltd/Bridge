@@ -70,15 +70,11 @@ namespace Bridge.Translator
             var jsBuffer = new StringBuilder();
             var jsMinBuffer = new StringBuilder();
 
-            IEnumerable<TranslatorOutputItem> outputForHtml;
+            IEnumerable<TranslatorOutputItem> outputForHtml = this.Outputs.GetOutputs();
 
             if (this.Outputs.Resources.Count > 0)
             {
-                outputForHtml = this.Outputs.Resources;
-            }
-            else
-            {
-                outputForHtml = this.Outputs.GetOutputs();
+                outputForHtml = outputForHtml.Concat(this.Outputs.Resources);
             }
 
             var firstJs = true;
