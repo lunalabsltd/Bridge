@@ -458,19 +458,19 @@ namespace System
 
         private string Format(string format)
         {
-            var s = ((uint)_a).ToString("x8") + ((ushort)_b).ToString("x4") + ((ushort)_c).ToString("x4");
-            s = s + (new[] { _d, _e, _f, _g, _h, _i, _j, _k }).Map(MakeBinary).Join("");
+            var s = ToHex((uint)_a, 8) + ToHex((ushort)_b, 4) + ToHex((ushort)_c, 4);
+            s = s + (new[] { _d, _e, _f, _g, _h, _i, _j, _k }).Map(ToHex).Join("");
 
-            var m = Guid.Split.Match(s);
-            List<string> list = new List<string>();
-            for (int i = 1; i <= m.Groups.Count; i++)
+            var m = Bridge.Script.Write<string[]>("/^(.{8})(.{4})(.{4})(.{4})(.{12})$/.exec(s)");
+            string[] list = new string[0];
+            for (int i = 1; i < m.Length; i++)
             {
-                if (m.Groups[i].Success)
+                if (m[i] != null)
                 {
-                    list.Add(m.Groups[i].Value);
+                    list.Push(m[i]);
                 }
             }
-            s = list.ToArray().Join("-");
+            s = list.Join("-");
 
             switch (format)
             {
@@ -491,9 +491,29 @@ namespace System
             }
         }
 
-        private static string MakeBinary(byte x)
+        private static string ToHex(uint x, int precision)
         {
-            return (x & 0xff).ToString("x2");
+            var result = Bridge.Script.Call<string>("x.toString", 16);
+            precision -= result.Length;
+
+            for (var i = 0; i < precision; i++)
+            {
+                result = "0" + result;
+            }
+
+            return result;
+        }
+
+        private static string ToHex(byte x)
+        {
+            var result = Bridge.Script.Call<string>("x.toString", 16);
+
+            if (result.Length == 1)
+            {
+                result = "0" + result;
+            }
+
+            return result;
         }
 
         private void FromString(string s)
