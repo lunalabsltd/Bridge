@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using ICSharpCode.NRefactory.TypeSystem;
+using ICSharpCode.NRefactory.CSharp;
 
 namespace Bridge.Translator
 {
@@ -55,8 +56,24 @@ namespace Bridge.Translator
             if (this.Emitter.AssemblyInfo.SourceMap.Enabled)
             {
                 var line = region.BeginLine;
-                var column = region.BeginColumn;
-                var point = string.Format("/*##|{0},{1},{2}|##*/", this.Emitter.SourceFileNameIndex, line, column);
+                var column = region.BeginColumn;                
+                var idx = this.Emitter.SourceFileNameIndex;
+
+                if (this.Emitter.TypeInfo.TypeDeclaration.HasModifier(ICSharpCode.NRefactory.CSharp.Modifiers.Partial))
+                {
+                    var fn = this.Emitter.Translator.EmitNode.GetParent<SyntaxTree>().FileName;
+
+                    if (fn != null && fn.Length > 0)
+                    {
+                        idx = this.Emitter.SourceFiles.IndexOf(fn);
+
+                        if (idx == -1)
+                        {
+                            idx = this.Emitter.SourceFileNameIndex;
+                        }
+                    }                    
+                }
+                var point = string.Format("/*##|{0},{1},{2}|##*/", idx, line, column);
 
                 if (this.Emitter.LastSequencePoint != point)
                 {
