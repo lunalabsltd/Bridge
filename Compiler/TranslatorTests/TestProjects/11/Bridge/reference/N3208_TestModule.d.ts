@@ -11,7 +11,7 @@ declare namespace N3208_TestModule.N3208_1_AndreyReview1 {
     var N3208_TestModuleScope: N3208_TestModuleScopeFunc;
     module N3208_TestModuleScope {
         interface Welcomer {
-            Hello(name: string): void;
+            Hello(name: string | null): void;
         }
         interface WelcomerFunc extends Function {
             prototype: Welcomer;

@@ -2,7 +2,7 @@
 
 declare namespace IntegrationTest08 {
     interface Class1 {
-        GetName(): string;
+        GetName(): string | null;
     }
     interface Class1Func extends Function {
         prototype: Class1;

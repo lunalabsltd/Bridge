@@ -12,7 +12,7 @@ declare namespace Issue3278 {
      * @class Issue3278.Program
      */
     interface Program {
-        TestProp: string;
+        TestProp: string | null;
     }
     interface ProgramFunc extends Function {
         prototype: Program;

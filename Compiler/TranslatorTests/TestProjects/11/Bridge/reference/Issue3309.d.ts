@@ -11,8 +11,8 @@ declare namespace Issue3309 {
      * @class Issue3309.Program
      */
     interface Program {
-        TestFieldPub: string;
-        TestPropPub: string;
+        TestFieldPub: string | null;
+        TestPropPub: string | null;
         TestMethodPub(): void;
     }
     interface ProgramFunc extends Function {
