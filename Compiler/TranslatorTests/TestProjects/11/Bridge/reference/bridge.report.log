@@ -5,6 +5,7 @@ Resources:
     Issue3278.js                       0.720 KB
     Issue3309.js                       1.964 KB
     Issue3559.js                       1.697 KB
+    Issue3702.js                       0.898 KB
     N3208_0_originalReport.js          1.135 KB
     N3208_1_AndreyReview1.js           1.961 KB
     TestProject1.js                    0.573 KB
@@ -15,6 +16,7 @@ Resources:
     Issue3278.d.ts                     0.503 KB
     Issue3309.d.ts                     0.517 KB
     Issue3559.d.ts                     0.933 KB
+    Issue3702.d.ts                     0.492 KB
     N3208_1_AndreyReview1.d.ts         0.202 KB
     TestProject1.d.ts                  0.236 KB
     TestProject2.d.ts                  0.234 KB
