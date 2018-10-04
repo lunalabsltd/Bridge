@@ -98,6 +98,7 @@ namespace Bridge.Translator.Tests
         [TestCase("11", false, true, TestName = "IntegrationTest 11 - Bridge.json generateTypeScript")]
         [TestCase("15", false, true, TestName = "IntegrationTest 15 - Bridge.json filename Define project constant #375")]
         [TestCase("16", false, true, TestName = "IntegrationTest 16 - Issues")]
+        [TestCase("17", false, true, TestName = "IntegrationTest 17 - Issues - Source maps enabled")]
         [TestCase("18", false, true, TestName = "IntegrationTest 18 - Features")]
 #if UNIX
         [TestCase("19", false, true, TestName = "IntegrationTest 19 - Linked files feature #531 #562", Ignore = "It is not supported in Mono (Mono issue logged as #38224 at Mono's official BugZilla)")]
