@@ -129,7 +129,7 @@ namespace Bridge.Translator.TypeScript
                 {
                     this.Write("?");
                 }
-            }            
+            }
 
             this.WriteColon();
 
@@ -145,7 +145,7 @@ namespace Bridge.Translator.TypeScript
                 {
                     this.Write(" | null");
                 }
-            }            
+            }
 
             this.WriteSemiColon();
             this.WriteNewLine();
@@ -180,7 +180,7 @@ namespace Bridge.Translator.TypeScript
             XmlToJsDoc.EmitComment(this, ev.Entity);
             this.Write(name);
             this.WriteColon();
-            
+
             string typeName = BridgeTypes.ToTypeScriptName(ev.Entity.ReturnType, this.Emitter);
             this.Write(typeName);
 
