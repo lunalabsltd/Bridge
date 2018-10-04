@@ -17689,7 +17689,7 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest.Batch3", function ($asm, globals)
             methods: {
                 TestIListIndexer: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3706).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3706, 2, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestIListIndexer()", $t.Line = "26", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3706).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3706, 2, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestIListIndexer()", $t.Line = "25", $t));
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge3706.TestIListIndexer();
                 }
             }
@@ -17741,7 +17741,7 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest.Batch3", function ($asm, globals)
             methods: {
                 TestBaseCtorArgumentConversion: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3714).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3714, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestBaseCtorArgumentConversion()", $t.Line = "28", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3714).BeforeTest(false, assert, Bridge.Test.Runtime.BridgeClientTestBatch3Runner.Bridge3714, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestBaseCtorArgumentConversion()", $t.Line = "42", $t));
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge3714.TestBaseCtorArgumentConversion();
                 }
             }

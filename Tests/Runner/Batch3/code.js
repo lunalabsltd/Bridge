@@ -34739,13 +34739,13 @@ Bridge.$N1391Result =                     r;
         statics: {
             methods: {
                 FooWorking: function (actions) {
-                    actions[System.Array.index(0, actions)].value();
+                    actions[System.Array.index(0, actions)].value("KeyValuePair[]");
                 },
                 FooFails: function (actions) {
-                    System.Array.getItem(actions, 0, System.Collections.Generic.KeyValuePair$2(System.String,Function)).value();
+                    System.Array.getItem(actions, 0, System.Collections.Generic.KeyValuePair$2(System.String,Function)).value("IList-KeyValuePair");
                 },
-                Test: function () {
-                    Bridge.Test.NUnit.Assert.True(true, "Action is invoked");
+                Test: function (what) {
+                    Bridge.Test.NUnit.Assert.True(true, (what || "") + " action is invoked");
                 },
                 TestIListIndexer: function () {
                     var l = System.Array.init([new (System.Collections.Generic.KeyValuePair$2(System.String,Function)).$ctor1("Bar", Bridge.ClientTest.Batch3.BridgeIssues.Bridge3706.Test)], System.Collections.Generic.KeyValuePair$2(System.String,Function));
@@ -34764,9 +34764,9 @@ Bridge.$N1391Result =                     r;
                     var o = Bridge.box(test, System.Int32);
                     var vt = Bridge.cast(Bridge.box(test, System.Int32), System.ValueType);
 
-                    Bridge.Test.NUnit.Assert.AreEqual(123, System.Nullable.getValue(Bridge.cast(Bridge.unbox(vt, System.Int32), System.Int32)));
-                    Bridge.Test.NUnit.Assert.AreEqual("123", Bridge.toString(vt));
-                    Bridge.Test.NUnit.Assert.True(Bridge.is(o, System.ValueType));
+                    Bridge.Test.NUnit.Assert.AreEqual(123, System.Nullable.getValue(Bridge.cast(Bridge.unbox(vt, System.Int32), System.Int32)), "A ValueType instance can be cast to int.");
+                    Bridge.Test.NUnit.Assert.AreEqual("123", Bridge.toString(vt), "A ValueType instance's ToString() method works.");
+                    Bridge.Test.NUnit.Assert.True(Bridge.is(o, System.ValueType), "An object containing a ValueType-capable value can be probed as a ValueType.");
                 }
             }
         }
@@ -34779,7 +34779,17 @@ Bridge.$N1391Result =                     r;
                     var test = new Bridge.ClientTest.Batch3.BridgeIssues.SubClass();
                     var v = test.Value.add(test.Value);
 
-                    Bridge.Test.NUnit.Assert.True(v.equalsT(System.Decimal(2.0)));
+                    Bridge.Test.NUnit.Assert.True(v.equalsT(System.Decimal(2.0)), "Implicit conversion on base constructor call works when passing 1 to decimal.");
+
+                    var test0 = new Bridge.ClientTest.Batch3.BridgeIssues.SubClass0();
+                    var v0 = test0.Value.add(test0.Value);
+
+                    Bridge.Test.NUnit.Assert.True(v0.equalsT(System.Decimal(0)), "Implicit conversion on base constructor call works when passing 0 to decimal.");
+
+                    var test0m = new Bridge.ClientTest.Batch3.BridgeIssues.SubClass0m();
+                    var v0m = test0.Value.add(test0.Value);
+
+                    Bridge.Test.NUnit.Assert.True(v0m.equalsT(System.Decimal(0)), "Base constructor call works when passing 0m to decimal (explicit conversion).");
                 }
             }
         }
@@ -45600,6 +45610,28 @@ Bridge.$N1391Result =                     r;
             ctor: function () {
                 this.$initialize();
                 Bridge.ClientTest.Batch3.BridgeIssues.BaseClass.ctor.call(this, System.Decimal(1));
+
+            }
+        }
+    });
+
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.SubClass0", {
+        inherits: [Bridge.ClientTest.Batch3.BridgeIssues.BaseClass],
+        ctors: {
+            ctor: function () {
+                this.$initialize();
+                Bridge.ClientTest.Batch3.BridgeIssues.BaseClass.ctor.call(this, System.Decimal(0));
+
+            }
+        }
+    });
+
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.SubClass0m", {
+        inherits: [Bridge.ClientTest.Batch3.BridgeIssues.BaseClass],
+        ctors: {
+            ctor: function () {
+                this.$initialize();
+                Bridge.ClientTest.Batch3.BridgeIssues.BaseClass.ctor.call(this, System.Decimal(0.0));
 
             }
         }
