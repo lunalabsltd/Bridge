@@ -34827,7 +34827,7 @@ Bridge.$N1391Result =                     r;
             methods: {
                 TestConstants: function () {
                     Bridge.Test.NUnit.Assert.AreEqual(10, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.A, "A is 10");
-                    Bridge.Test.NUnit.Assert.AreEqual(20, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.B, "A is 20");
+                    Bridge.Test.NUnit.Assert.AreEqual(20, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.B, "B is 20");
                     Bridge.Test.NUnit.Assert.False(false, "A is not greater than B");
                     Bridge.Test.NUnit.Assert.AreEqual(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.B, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.C, "C received value from A");
                 }
