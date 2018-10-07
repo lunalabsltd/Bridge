@@ -15,7 +15,7 @@ namespace Bridge.ClientTest.Batch3.BridgeIssues
         public static void TestConstants()
         {
             Assert.AreEqual(10, A, "A is 10");
-            Assert.AreEqual(20, B, "A is 20");
+            Assert.AreEqual(20, B, "B is 20");
             Assert.False(A > B, "A is not greater than B");
             Assert.AreEqual(B, C, "C received value from A");
         }
