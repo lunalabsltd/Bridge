@@ -193,9 +193,9 @@ namespace Bridge.Translator
         /// <summary>
         /// Generates the variable declaration and object creation statement.
         /// </summary>
-        public static LocalDeclarationStatementSyntax GenerateVariableDeclarationAndObjectCreationStatement(string variableName, Type type)
+        public static LocalDeclarationStatementSyntax GenerateVariableDeclarationAndObjectCreationStatement(string variableName, Type type, SemanticModel model, int pos)
         {
-            return GenerateVariableDeclarationAndObjectCreationStatement(variableName, () => GenerateTypeSyntax(type));
+            return GenerateVariableDeclarationAndObjectCreationStatement(variableName, () => GenerateTypeSyntax(type, model, pos));
         }
 
         /// <summary>
@@ -297,14 +297,14 @@ namespace Bridge.Translator
         /// <summary>
         /// Generates the type syntax.
         /// </summary>
-        public static TypeSyntax GenerateTypeSyntax(Type type)
+        public static TypeSyntax GenerateTypeSyntax(Type type, SemanticModel model, int pos)
         {
             var name = GetTypeName(type);
 
             if (type.IsGenericType)
             {
                 var genericArguments = type.GetGenericArguments();
-                return GenerateGenericName(name, genericArguments);
+                return GenerateGenericName(name, genericArguments, model, pos);
             }
 
             return SyntaxFactory.ParseTypeName(name);
@@ -312,27 +312,50 @@ namespace Bridge.Translator
 
         public static TypeSyntax GenerateTypeSyntax(ITypeSymbol type)
         {
+            if (type.IsTupleType)
+            {
+                var elements = ((INamedTypeSymbol)type).TupleElements;
+                var types = new List<TypeSyntax>();
+                foreach (var el in elements)
+                {
+                    types.Add(SyntaxHelper.GenerateTypeSyntax(el.Type));
+                }
+
+                return SyntaxFactory.GenericName(SyntaxFactory.Identifier("System.ValueTuple"), SyntaxFactory.TypeArgumentList(SyntaxFactory.SeparatedList<TypeSyntax>(types)));
+            }
             return SyntaxFactory.IdentifierName(type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)).WithoutTrivia();
         }
 
         public static TypeSyntax GenerateTypeSyntax(ITypeSymbol type, SemanticModel model, int pos)
         {
+            if (type.IsTupleType)
+            {
+                var elements = ((INamedTypeSymbol)type).TupleElements;
+                var types = new List<TypeSyntax>();
+                foreach (var el in elements)
+                {
+                    types.Add(SyntaxHelper.GenerateTypeSyntax(el.Type, model, pos));
+                }
+
+                return SyntaxFactory.GenericName(SyntaxFactory.Identifier("System.ValueTuple"), SyntaxFactory.TypeArgumentList(SyntaxFactory.SeparatedList<TypeSyntax>(types)));
+            }
+
             return SyntaxFactory.ParseTypeName(type.ToMinimalDisplayString(model, pos));
         }
 
         /// <summary>
         /// Generates the name of the generic.
         /// </summary>
-        public static GenericNameSyntax GenerateGenericName(string name, IEnumerable<Type> types)
+        public static GenericNameSyntax GenerateGenericName(string name, IEnumerable<Type> types, SemanticModel model, int pos)
         {
             return SyntaxFactory.GenericName(SyntaxFactory.Identifier(name),
-                SyntaxFactory.TypeArgumentList(SyntaxFactory.SeparatedList(types.Select(GenerateTypeSyntax)))
+                SyntaxFactory.TypeArgumentList(SyntaxFactory.SeparatedList(types.Select((type) => GenerateTypeSyntax(type, model, pos))))
             );
         }
 
-        public static GenericNameSyntax GenerateGenericName(SyntaxToken name, IEnumerable<ITypeSymbol> types)
+        public static GenericNameSyntax GenerateGenericName(SyntaxToken name, IEnumerable<ITypeSymbol> types, SemanticModel model, int pos)
         {
-            return SyntaxFactory.GenericName(name, SyntaxFactory.TypeArgumentList(SyntaxFactory.SeparatedList(types.Select(GenerateTypeSyntax))));
+            return SyntaxFactory.GenericName(name, SyntaxFactory.TypeArgumentList(SyntaxFactory.SeparatedList(types.Select((type) => GenerateTypeSyntax(type, model, pos)))));
         }
 
         /// <summary>

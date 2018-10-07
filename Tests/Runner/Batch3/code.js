@@ -15581,7 +15581,7 @@ Bridge.$N1391Result =                     r;
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge2199.AssertTypeName(System.Single, f, System.Single);
 
                     var ts = System.Threading.Tasks.TaskStatus.running;
-                    Bridge.ClientTest.Batch3.BridgeIssues.Bridge2199.AssertTypeName(Bridge.global.System.Threading.Tasks.TaskStatus, ts, System.Threading.Tasks.TaskStatus);
+                    Bridge.ClientTest.Batch3.BridgeIssues.Bridge2199.AssertTypeName(System.Threading.Tasks.TaskStatus, ts, System.Threading.Tasks.TaskStatus);
 
                     var c = 97;
                     Bridge.ClientTest.Batch3.BridgeIssues.Bridge2199.AssertTypeName(System.Char, c, System.Char);
@@ -16978,7 +16978,7 @@ Bridge.$N1391Result =                     r;
                     }
 
                     var instance = new Bridge.ClientTest.Batch3.BridgeIssues.Bridge2344.Foo();
-                    Bridge.ClientTest.Batch3.BridgeIssues.Bridge2344.Foo.SomeMethod(Bridge.global.HTMLElement, System.String, instance);
+                    Bridge.ClientTest.Batch3.BridgeIssues.Bridge2344.Foo.SomeMethod(HTMLElement, System.String, instance);
 
                     Bridge.Test.NUnit.Assert.AreEqual("zzz", instance.Second);
                 }
@@ -18072,7 +18072,7 @@ Bridge.$N1391Result =                     r;
                                             result.add("xxx");
                                             result.add("yyy");
 
-                                            $task1 = System.Threading.Tasks.Task.fromResult(result, Bridge.global.System.Collections.Generic.List$1(System.String));
+                                            $task1 = System.Threading.Tasks.Task.fromResult(result, System.Collections.Generic.List$1(System.String));
                                             $step = 1;
                                             $task1.continueWith($asyncBody);
                                             return;
@@ -24230,7 +24230,7 @@ Bridge.$N1391Result =                     r;
         },
         methods: {
             addRegister: function (value) {
-                if (Bridge.staticEquals(this.register, null) || System.Array.contains(Bridge.fn.getInvocationList(this.register), value, Bridge.global.Function) === false) {
+                if (Bridge.staticEquals(this.register, null) || System.Array.contains(Bridge.fn.getInvocationList(this.register), value, Function) === false) {
                     this.register = Bridge.fn.combine(this.register, value);
                 }
             },
@@ -34795,6 +34795,19 @@ Bridge.$N1391Result =                     r;
         }
     });
 
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3728", {
+        statics: {
+            methods: {
+                TestGnericParameterValueTuple: function () {
+                    var list = new (System.Collections.Generic.List$1(System.ValueTuple$2(System.Guid,System.Int32))).ctor();
+                    list.add(new (System.ValueTuple$2(System.Guid,System.Int32)).$ctor1(System.Guid.NewGuid(), 123));
+
+                    Bridge.Test.NUnit.Assert.AreEqual(123, System.Linq.Enumerable.from(list).first().Item2, "Generics with ValueTuple Enumerables works.");
+                }
+            }
+        }
+    });
+
     Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733", {
         statics: {
             fields: {
@@ -37516,7 +37529,7 @@ Bridge.$N1391Result =                     r;
                     Bridge.Test.NUnit.Assert.True(Bridge.hasValue(d4), "Bridge625 d4");
 
                     var content = new (System.Collections.Generic.Dictionary$2(System.DateTime,System.Array.type(System.Double)))();
-                    var dict1 = System.Linq.Enumerable.from(content).where($asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge625.f3).toDictionary($asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge625.f4, $asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge625.f5, Bridge.global.System.DateTime, System.Array.type(System.Double));
+                    var dict1 = System.Linq.Enumerable.from(content).where($asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge625.f3).toDictionary($asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge625.f4, $asm.$.Bridge.ClientTest.Batch3.BridgeIssues.Bridge625.f5, System.DateTime, System.Array.type(System.Double));
                     Bridge.Test.NUnit.Assert.AreEqual(0, dict1.count);
                 }
             }
@@ -40202,7 +40215,7 @@ Bridge.$N1391Result =                     r;
                                             continue;
                                         }
                                         case 1: {
-                                            task = System.Threading.Tasks.Task.fromResult(new System.Exception("Success"), Bridge.global.System.Exception);
+                                            task = System.Threading.Tasks.Task.fromResult(new System.Exception("Success"), System.Exception);
                                             if (throwException) {
                                                 throw new System.Exception("test");
                                             }
