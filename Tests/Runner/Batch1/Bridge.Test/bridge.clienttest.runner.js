@@ -11383,17 +11383,17 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest", function ($asm, globals) {
             methods: {
                 TestConstructorArgumentsBodyInOneParameter: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.FunctionTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.FunctionTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestConstructorArgumentsBodyInOneParameter()", $t.Line = "20", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.FunctionTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.FunctionTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestConstructorArgumentsBodyInOneParameter()", $t.Line = "13", $t));
                     t.Fixture.TestConstructorArgumentsBodyInOneParameter();
                 },
                 TestConstructorArgumentsBodyInTwoParameters: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.FunctionTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.FunctionTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestConstructorArgumentsBodyInTwoParameters()", $t.Line = "28", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.FunctionTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.FunctionTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestConstructorArgumentsBodyInTwoParameters()", $t.Line = "21", $t));
                     t.Fixture.TestConstructorArgumentsBodyInTwoParameters();
                 },
                 TestConstructorArgumentsInArray: function (assert) {
                     var $t;
-                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.FunctionTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.FunctionTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestConstructorArgumentsInArray()", $t.Line = "36", $t));
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.FunctionTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.FunctionTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestConstructorArgumentsInArray()", $t.Line = "29", $t));
                     t.Fixture.TestConstructorArgumentsInArray();
                 }
             }

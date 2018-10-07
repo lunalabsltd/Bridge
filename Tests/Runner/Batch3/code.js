@@ -17640,7 +17640,7 @@ Bridge.$N1391Result =                     r;
             },
             methods: {
                 TestPropertyInitializer: function () {
-                    var d2 = { Value2: Bridge.getDefaultValue(System.Int32), Value1: Bridge.getDefaultValue(System.Int32) };
+                    var d2 = { Value2: 0, Value1: 0 };
                     Bridge.Test.NUnit.Assert.AreEqual(0, d2.Value1);
                     Bridge.Test.NUnit.Assert.AreEqual(0, d2.Value2);
 
@@ -34790,6 +34790,33 @@ Bridge.$N1391Result =                     r;
                     var v0m = test0.Value.add(test0.Value);
 
                     Bridge.Test.NUnit.Assert.True(v0m.equalsT(System.Decimal(0)), "Base constructor call works when passing 0m to decimal (explicit conversion).");
+                }
+            }
+        }
+    });
+
+    Bridge.define("Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733", {
+        statics: {
+            fields: {
+                A: 0,
+                B: 0,
+                C: 0,
+                Test: null
+            },
+            ctors: {
+                init: function () {
+                    this.A = 10;
+                    this.B = 20;
+                    this.C = 20;
+                    this.Test = System.Array.init(200, 0, System.Int32);
+                }
+            },
+            methods: {
+                TestConstants: function () {
+                    Bridge.Test.NUnit.Assert.AreEqual(10, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.A, "A is 10");
+                    Bridge.Test.NUnit.Assert.AreEqual(20, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.B, "A is 20");
+                    Bridge.Test.NUnit.Assert.False(false, "A is not greater than B");
+                    Bridge.Test.NUnit.Assert.AreEqual(Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.B, Bridge.ClientTest.Batch3.BridgeIssues.Bridge3733.C, "C received value from A");
                 }
             }
         }

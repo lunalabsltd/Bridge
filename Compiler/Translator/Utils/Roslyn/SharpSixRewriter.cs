@@ -863,6 +863,90 @@ namespace Bridge.Translator
             return node;
         }
 
+        public override SyntaxNode VisitEqualsValueClause(EqualsValueClauseSyntax node)
+        {
+            var value = semanticModel.GetConstantValue(node.Value);            
+            var newNode = base.VisitEqualsValueClause(node);
+
+            if (value.HasValue && value.Value != null && newNode is EqualsValueClauseSyntax evc && !(node.Value is CastExpressionSyntax) && !(node.Value is LiteralExpressionSyntax))
+            {
+                var parent = node.GetParent<MemberDeclarationSyntax>();
+                if (parent != null && (parent is FieldDeclarationSyntax || parent is PropertyDeclarationSyntax pd && pd.Initializer != null && pd.Initializer.Equals(node)))
+                {
+                    ExpressionSyntax literal = null;
+                    if (SyntaxHelper.IsNumeric(value.Value.GetType()))
+                    {
+                        if (value.Value is double d && (double.IsNaN(d) || double.IsInfinity(d)))
+                        {
+                            IdentifierNameSyntax name = null;
+                            if (double.IsNaN(d))
+                            {
+                                name = SyntaxFactory.IdentifierName("NaN");
+                            }
+                            else if (double.IsPositiveInfinity(d))
+                            {
+                                name = SyntaxFactory.IdentifierName("PositiveInfinity");
+                            }
+                            else if (double.IsNegativeInfinity(d))
+                            {
+                                name = SyntaxFactory.IdentifierName("NegativeInfinity");
+                            }
+
+                            literal = SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.DoubleKeyword)), name);
+                        }
+                        else if (value.Value is float f && (float.IsNaN(f) || float.IsInfinity(f)))
+                        {
+                            IdentifierNameSyntax name = null;
+                            if (float.IsNaN(f))
+                            {
+                                name = SyntaxFactory.IdentifierName("NaN");
+                            }
+                            else if (float.IsPositiveInfinity(f))
+                            {
+                                name = SyntaxFactory.IdentifierName("PositiveInfinity");
+                            }
+                            else if (float.IsNegativeInfinity(f))
+                            {
+                                name = SyntaxFactory.IdentifierName("NegativeInfinity");
+                            }
+
+                            literal = SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.FloatKeyword)), name);
+                        }
+                        else
+                        {
+                            var ti = semanticModel.GetTypeInfo(node.Value);
+                            if (ti.Type != null && ti.Type.TypeKind == TypeKind.Enum || ti.ConvertedType != null && ti.ConvertedType.TypeKind == TypeKind.Enum)
+                            {
+                                return newNode;
+                            }
+
+                            literal = SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression, SyntaxFactory.Literal((dynamic)value.Value));
+                        }
+                    }
+                    else if (value.Value is bool)
+                    {
+                        literal = SyntaxFactory.LiteralExpression((bool)value.Value ? SyntaxKind.TrueLiteralExpression : SyntaxKind.FalseLiteralExpression);
+                    }
+                    else if (value.Value is string)
+                    {
+                        literal = SyntaxFactory.LiteralExpression(SyntaxKind.StringLiteralExpression, SyntaxFactory.Literal((string)value.Value));
+                    }
+                    else if (value.Value is char)
+                    {
+                        literal = SyntaxFactory.LiteralExpression(SyntaxKind.CharacterLiteralExpression, SyntaxFactory.Literal((char)value.Value));
+                    }
+                    else
+                    {
+                        return newNode;
+                    }
+
+                    return evc.WithValue(literal);
+                }                              
+            }
+
+            return newNode;
+        }
+
         public override SyntaxNode VisitIdentifierName(IdentifierNameSyntax node)
         {
             var symbol = semanticModel.GetSymbolInfo(node).Symbol;
