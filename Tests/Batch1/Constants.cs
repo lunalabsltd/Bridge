@@ -34,6 +34,7 @@
 
         public const string MODULE_DATETIME = "Date and time"; // "DateTime, TimeSpan";
         public const string MODULE_NULLABLE = "Nullable";
+        public const string MODULE_RVALUE = "RValue";
         public const string MODULE_STRING = "String";// "String, StringBuilder, FormattableString"
         public const string MODULE_REGEX = "Regex";
         public const string MODULE_REGEX_JS = "RegexJS";

@@ -2795,6 +2795,11 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest", function ($asm, globals) {
             QUnit.test("TestWorks", Bridge.Test.Runtime.BridgeClientTestRunner.BridgeRegexTests.TestWorks);
             QUnit.module("Runtime helpers");
             QUnit.test("GetHashCodeWoksForObject_SPI_1570", Bridge.Test.Runtime.BridgeClientTestRunner.RuntimeHelpersTests.GetHashCodeWoksForObject_SPI_1570);
+            QUnit.module("RValue");
+            QUnit.test("RValue - TestSimpleStruct", Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests.TestSimpleStruct);
+            QUnit.test("RValue - TestSimpleClass", Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests.TestSimpleClass);
+            QUnit.test("RValue - TestSimpleType", Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests.TestSimpleType);
+            QUnit.test("RValue - TestRefOutGeneric", Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests.TestRefOutGeneric);
             QUnit.module("Script");
             QUnit.test("BooleanWorks_SPI_1619", Bridge.Test.Runtime.BridgeClientTestRunner.ScriptTests.BooleanWorks_SPI_1619);
             QUnit.test("EvalWorks", Bridge.Test.Runtime.BridgeClientTestRunner.ScriptTests.EvalWorks);
@@ -20824,6 +20829,47 @@ Bridge.assembly("Bridge.Test.Bridge.ClientTest", function ($asm, globals) {
                 var $t;
                 if (this.context == null) {
                     this.context = ($t = new Bridge.Test.Runtime.FixtureContext(), $t.Project = "Batch1", $t.ClassName = "Bridge.ClientTest.Runtime.CompilerServices.RuntimeHelpersTests", $t.File = "Batch1\\Runtime\\CompilerServices\\RuntimeHelpersTests.cs", $t);
+                }
+                return this.context;
+            }
+        }
+    });
+
+    Bridge.define("Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests", {
+        inherits: [Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch1.RValueTests)],
+        $kind: "nested class",
+        statics: {
+            methods: {
+                TestSimpleStruct: function (assert) {
+                    var $t;
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch1.RValueTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestSimpleStruct()", $t.Line = "49", $t));
+                    t.Fixture.TestSimpleStruct();
+                },
+                TestSimpleClass: function (assert) {
+                    var $t;
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch1.RValueTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestSimpleClass()", $t.Line = "86", $t));
+                    t.Fixture.TestSimpleClass();
+                },
+                TestSimpleType: function (assert) {
+                    var $t;
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch1.RValueTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestSimpleType()", $t.Line = "113", $t));
+                    t.Fixture.TestSimpleType();
+                },
+                TestRefOutGeneric: function (assert) {
+                    var $t;
+                    var t = Bridge.Test.Runtime.TestFixture$1(Bridge.ClientTest.Batch1.RValueTests).BeforeTest(true, assert, Bridge.Test.Runtime.BridgeClientTestRunner.RValueTests, void 0, ($t = new Bridge.Test.Runtime.TestContext(), $t.Method = "TestRefOutGeneric()", $t.Line = "122", $t));
+                    t.Fixture.TestRefOutGeneric();
+                }
+            }
+        },
+        fields: {
+            context: null
+        },
+        methods: {
+            GetContext: function () {
+                var $t;
+                if (this.context == null) {
+                    this.context = ($t = new Bridge.Test.Runtime.FixtureContext(), $t.Project = "Batch1", $t.ClassName = "Bridge.ClientTest.Batch1.RValueTests", $t.File = "Batch1\\RValueTests.cs", $t);
                 }
                 return this.context;
             }

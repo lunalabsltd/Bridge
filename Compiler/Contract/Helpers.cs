@@ -444,6 +444,13 @@ namespace Bridge.Contract
             }
 
             var type = nullable ? ((ParameterizedType)rrtype).TypeArguments[0] : rrtype;
+
+            if (type.Kind == TypeKind.TypeParameter && block.Emitter.AssemblyInfo.SafeStructsInGenerics)
+            {
+                Helpers.BridgeRValue(insertPosition, block);
+                return;
+            }
+
             if (type.Kind == TypeKind.Struct)
             {
                 if (Helpers.IsImmutableStruct(block.Emitter, type))
@@ -512,6 +519,16 @@ namespace Bridge.Contract
             {
                 block.Write("." + JS.Funcs.CLONE + "()");
             }
+        }
+
+        private static void BridgeRValue(int insertPosition, IAbstractEmitterBlock block)
+        {
+            block.Emitter.Output.Insert(
+                insertPosition,
+                JS.Funcs.BRIDGE_RVALUE + "("
+            );
+
+            block.WriteCloseParentheses();
         }
 
         public static bool IsImmutableStruct(IEmitter emitter, IType type)

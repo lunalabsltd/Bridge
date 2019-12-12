@@ -26,5 +26,6 @@
       "extract": false
     }
   ],
-  "ignoreDuplicateTypes": true
+  "ignoreDuplicateTypes": true,
+  "safeStructsInGenerics": true
 }

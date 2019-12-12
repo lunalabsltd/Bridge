@@ -35,6 +35,10 @@
             }
         },
 
+        rValue: function (instance) {
+            return instance && instance.$clone ? instance.$clone() : instance;
+        },
+
         toString: function (instance) {
             if (instance == null) {
                 throw new System.ArgumentNullException();
