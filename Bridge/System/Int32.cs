@@ -21,6 +21,15 @@ namespace System
         [Bridge.Template("System.Int32.parse({s}, {radix})")]
         public static extern int Parse(string s, int radix);
 
+        /*[Bridge.Template("System.Int32.parse({s}, {radix})")]
+        public static extern int Parse(string s, Globalization.NumberStyles style);*/
+        public static int Parse(string s, Globalization.NumberStyles style)
+        {
+            Bridge.Utils.Console.Log("This function implement not properly!");
+            TryParse(s, out var val);
+            return val;
+        }
+
         [Bridge.Template("System.Int32.tryParse({s}, {result})")]
         public static extern bool TryParse(string s, out int result);
 

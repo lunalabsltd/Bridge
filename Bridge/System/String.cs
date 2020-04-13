@@ -972,5 +972,17 @@ namespace System
         /// <param name="count">The number of characters in this instance to copy to destination.</param>
         [Bridge.Template("System.String.copyTo({this}, {sourceIndex}, {destination}, {destinationIndex}, {count})")]
         public extern void CopyTo(int sourceIndex, char[] destination, int destinationIndex, int count);
+
+        public int LastIndexOf(string value, StringComparison comparisonType)
+        {
+            Console.WriteLine("Not Implemented");
+            return default(int);
+        }
+
+        public static int CompareOrdinal(string strA, string strB)
+        {
+            Console.WriteLine("Not Implemented");
+            return default(int);
+        }
     }
 }

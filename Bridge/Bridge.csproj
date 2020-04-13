@@ -92,6 +92,7 @@
     <Compile Include="shared\System\FormattableString.cs" />
     <Compile Include="shared\System\Globalization\BidiCategory.cs" />
     <Compile Include="shared\System\Globalization\DaylightTime.cs" />
+    <Compile Include="shared\System\Globalization\NumberStyles.cs" />
     <Compile Include="shared\System\Globalization\SortVersion.cs" />
     <Compile Include="shared\System\Globalization\UnicodeCategory.cs" />
     <Compile Include="shared\System\IO\FileOptions.cs" />
@@ -474,6 +475,7 @@
     <Compile Include="System\Runtime\Serialization\OnSerializedAttribute.cs" />
     <Compile Include="System\Runtime\Serialization\OnDeserializingAttribute.cs" />
     <Compile Include="System\Runtime\Serialization\OnSerializingAttribute.cs" />
+    <Compile Include="System\Runtime\Serialization\SerializationInfo.cs" />
     <Compile Include="System\StringComparer.cs" />
     <Compile Include="System\Text\ASCIIEncoding.cs" />
     <Compile Include="System\Text\Encoding.cs" />

@@ -327,6 +327,23 @@
                 return c;
             },
 
+            getCultureInfoByIetfLanguageTag: function (name) {
+                //Not proper implementation
+                if (name == null) {
+                    throw new System.ArgumentNullException.$ctor1("name");
+                } else if (name === "") {
+                    return System.Globalization.CultureInfo.invariantCulture;
+                }
+
+                var c = this.cultures[name];
+
+                if (c == null) {
+                    throw new System.Globalization.CultureNotFoundException.$ctor5("name", name);
+                }
+
+                return c;
+            },
+
             getCultures: function () {
                 var names = Bridge.getPropertyNames(this.cultures),
                     result = [],

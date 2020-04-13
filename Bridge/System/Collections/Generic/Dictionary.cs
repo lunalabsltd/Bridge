@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace System.Collections.Generic
 {
     using Bridge;
@@ -64,6 +66,11 @@ namespace System.Collections.Generic
             {
                 Add(pair.Key, pair.Value);
             }
+        }
+
+        protected Dictionary(SerializationInfo info, StreamingContext context)
+        {
+            Console.Write("Not Implemented In Luna");
         }
 
         public IEqualityComparer<TKey> Comparer

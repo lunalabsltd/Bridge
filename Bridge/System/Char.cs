@@ -137,5 +137,19 @@ namespace System
 
         [Bridge.Template("String.fromCharCode({c})")]
         public static extern string ToString(Char c);
+
+        public static string ConvertFromUtf32(int utf32)
+        {
+            if (utf32 < 0 || utf32 > 1114111 || utf32 >= 55296 && utf32 <= 57343)
+                throw new ArgumentOutOfRangeException(nameof (utf32), Environment.GetResourceString("ArgumentOutOfRange_InvalidUTF32"));
+            if (utf32 < 65536)
+                return char.ToString((char) utf32);
+            utf32 -= 65536;
+            return new string(new char[2]
+            {
+                (char) (utf32 / 1024 + 55296),
+                (char) (utf32 % 1024 + 56320)
+            });
+        }
     }
 }

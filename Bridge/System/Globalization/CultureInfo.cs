@@ -32,6 +32,9 @@ namespace System.Globalization
 
         public static extern CultureInfo[] GetCultures();
 
+        [Bridge.Convention(Bridge.Notation.CamelCase)]
+        public static extern CultureInfo GetCultureInfoByIetfLanguageTag(string name);
+
         /// <summary>
         /// Gets or sets the CultureInfo object that represents the culture used by the current thread.
         /// </summary>
