@@ -177,6 +177,7 @@
         "Resources/.generated/System/Runtime/Serialization/SerializationEntry.js",
         "Resources/.generated/System/Runtime/Serialization/SerializationException.js",
         "Resources/.generated/System/Runtime/Serialization/SerializationInfoEnumerator.js",
+        "Resources/.generated/System/Runtime/Serialization/SerializationInfo.js",
         "Resources/.generated/System/Runtime/Serialization/StreamingContext.js",
         "Resources/.generated/System/Runtime/Serialization/StreamingContextStates.js",
         "Resources/.generated/System/Runtime/Serialization/OnSerializingAttribute.js",

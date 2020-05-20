@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace System.Collections.Generic
 {
     using Bridge;
@@ -65,6 +67,12 @@ namespace System.Collections.Generic
                 Add(pair.Key, pair.Value);
             }
         }
+
+        protected Dictionary(SerializationInfo info, StreamingContext context)
+        {
+            Bridge.Utils.Console.Log("Not Implemented");
+        }
+
 
         public IEqualityComparer<TKey> Comparer
         {
@@ -567,7 +575,9 @@ namespace System.Collections.Generic
             {
                 CopyTo(pairs, index);
             }
+#pragma warning disable 184
             else if (array is DictionaryEntry[])
+#pragma warning restore 184
             {
                 DictionaryEntry[] dictEntryArray = array as DictionaryEntry[];
                 Entry[] entries = this.entries;

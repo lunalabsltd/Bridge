@@ -475,6 +475,7 @@
     <Compile Include="System\Runtime\Serialization\OnSerializedAttribute.cs" />
     <Compile Include="System\Runtime\Serialization\OnDeserializingAttribute.cs" />
     <Compile Include="System\Runtime\Serialization\OnSerializingAttribute.cs" />
+    <Compile Include="System\Runtime\Serialization\SerializationInfo.cs" />
     <Compile Include="System\StringComparer.cs" />
     <Compile Include="System\Text\ASCIIEncoding.cs" />
     <Compile Include="System\Text\Encoding.cs" />
