@@ -49,7 +49,22 @@ namespace Bridge.Translator
             if (this.YieldReturnStatement != null)
             {
                 this.Write(JS.Vars.ENUMERATOR + "." + JS.Fields.CURRENT + " = ");
-                this.YieldReturnStatement.Expression.AcceptVisitor(this.Emitter);
+
+                //This means that we working with function call, and not with class instance
+                if (this.YieldReturnStatement.Expression.GetType() == typeof(InvocationExpression) &&
+                    this.YieldReturnStatement.Expression.FirstChild.ToString() != "StartCoroutine")
+                {
+                    //
+                    this.Write("StartCoroutine$1");
+                    this.WriteOpenParentheses();
+                    this.YieldReturnStatement.Expression.AcceptVisitor(this.Emitter);
+                    this.WriteCloseParentheses();
+                }
+                else
+                {
+                    this.YieldReturnStatement.Expression.AcceptVisitor(this.Emitter);
+                }
+
                 this.WriteSemiColon();
                 this.WriteNewLine();
 
