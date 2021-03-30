@@ -367,6 +367,10 @@ namespace Bridge.Translator.Tests
 
             var projectsPath = Directory.GetDirectories(Helpers.FileHelper.GetRelativeToCurrentDirPath(Path.Combine("..", "..", "TestProjects"), folder));
 
+            //temp REMOVE ME AFTER!!!!
+            projectsPath[0] = projectsPath[1];
+            //
+
             var projects = new List<TestProjectInfo>();
             TestProjectInfo project;
 

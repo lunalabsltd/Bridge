@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using System.IO;
 using System.Linq;
 
@@ -36,7 +37,15 @@ namespace Bridge.Translator.Tests
             {
                 dataFromStream = new TestTranslator().TestReadStream(stream);
             }
+
+            var t = new TestTranslator()
+            {
+                SourceFiles = {""}
+            };
+            t.Translate();
             Assert.AreEqual(data, dataFromStream, "Bridge.Translator.ReadStream() supports reading 1.5MB large streams.");
         }
+
+
     }
 }

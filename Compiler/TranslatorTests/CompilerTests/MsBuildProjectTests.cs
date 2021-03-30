@@ -177,7 +177,10 @@ namespace Bridge.Translator.Tests.CompilerTests
                 File.WriteAllText(Path.Combine(tmpDir, "test1.cs"), "using System;");
                 File.WriteAllText(Path.Combine(tmpDir, "test2.cs"), "using System;");
 
-                var translator = new Translator(tmpFile, null);
+                var translator = new Translator(tmpFile, null)
+                {
+                    /*SourceFiles = {Path.Combine(tmpDir, "test3.cs")}*/
+                };
                 translator.Log = Substitute.For<ILogger>();
                 translator.AssemblyInfo = new AssemblyInfo
                 {
@@ -208,6 +211,7 @@ namespace Bridge.Translator.Tests.CompilerTests
                 Assert.AreEqual("NET40", constants.First(ct => ct == "NET40"));
                 Assert.AreEqual("RELEASE", constants.First(ct => ct == "RELEASE"));
                 Assert.AreEqual("TRACE", constants.First(ct => ct == "TRACE"));
+
             }
             finally
             {
