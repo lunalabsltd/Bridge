@@ -705,17 +705,22 @@
             }
 
             if (Bridge.isString(value)) {
-                if (Math.imul) {
-                    for (var i = 0, h = 0; i < value.length; i++)
-                        h = Math.imul(31, h) + value.charCodeAt(i) | 0;
-                    return h;
-                } else {
-                    var h = 0, l = value.length, i = 0;
-                    if (l > 0)
-                        while (i < l)
-                            h = (h << 5) - h + value.charCodeAt(i++) | 0;
-                    return h;
+                var encoder = 'TextEncoder' in window ? new TextEncoder() : {encode: function(str){return Uint8Array.from(str, function(c){return c.codePointAt(0);});}};
+                var array = encoder.encode(value);
+                let num1 = 5381;
+                let num2 = num1;
+                let num3;
+                for (let index = 0; index < array.length; index += 2)
+                {
+                    num3 = array[index];
+                    num1 = (num1 << 5) + num1 ^ num3;
+                    let num4 = index + 1 < array.length ? array[index + 1] : 0;
+                    if (num4 !== 0)
+                        num2 = (num2 << 5) + num2 ^ num4;
+                    else
+                        break;
                 }
+                return System.Int32.checkOverflow( num1 + System.Int32.checkOverflow( num2 * 1566083941 ) );
             }
 
             if (value.$$hashCode) {
