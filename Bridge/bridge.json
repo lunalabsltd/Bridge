@@ -211,6 +211,7 @@
         "Resources/.generated/System/BitConverter.js",
 
         "Resources/.generated/System/Collections/BitArray.js",
+        "Resources/.generated/System/Collections/DictionaryEntry.js",
         "Resources/.generated/System/Collections/BitArray/BitArrayEnumeratorSimple.js",
         "Resources/.generated/System/Collections/Generic/BitHelper.js",
         "Resources/.generated/System/Collections/Generic/DictionaryKeyCollectionDebugView.js",
@@ -227,8 +228,17 @@
         "Resources/.generated/System/Collections/Generic/Queue/Enumerator.js",
         "Resources/.generated/System/Collections/Generic/Stack.js",
         "Resources/.generated/System/Collections/Generic/Stack/Enumerator.js",
+        
+        "Resources/.generated/System/Collections/Hashtable.js",
+        "Resources/.generated/System/Collections/Hashtable/bucket.js",
+        "Resources/.generated/System/Collections/Hashtable/HashtableDebugView.js",
+        "Resources/.generated/System/Collections/Hashtable/HashtableEnumerator.js",
+        "Resources/.generated/System/Collections/Hashtable/KeyCollection.js",
+        "Resources/.generated/System/Collections/Hashtable/ValueCollection.js",
+        
         "Resources/.generated/System/Collections/HashHelpers.js",
 
+        
         "Resources/.generated/System/Collections/ObjectModel/Collection.js",
         "Resources/.generated/System/Collections/ObjectModel/ReadOnlyCollection.js",
 
