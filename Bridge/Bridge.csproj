@@ -246,10 +246,13 @@
     <Compile Include="shared\System\Collections\Generic\Queue.cs" />
     <Compile Include="shared\System\Collections\Generic\Stack.cs" />
     <Compile Include="System\Collections\Generic\LinkedList.cs" />
+    <Compile Include="System\Collections\Generic\RandomizedObjectEqualityComparer.cs" />
+    <Compile Include="System\Collections\Generic\RandomizedStringEqualityComparer.cs" />
     <Compile Include="System\Collections\Generic\ReadOnlyDictionary.cs" />
     <Compile Include="System\Collections\Generic\SortedSet.cs" />
     <Compile Include="System\Collections\Generic\SortedList.cs" />
     <Compile Include="System\Collections\HashHelpers.cs" />
+    <Compile Include="System\Collections\Hashtable.cs" />
     <Compile Include="System\Collections\IDictionary.cs" />
     <Compile Include="System\Collections\KeyValuePairs.cs" />
     <Compile Include="System\Collections\SortedList.cs" />
@@ -300,6 +303,7 @@
     <Compile Include="shared\System\Globalization\DateTimeStyles.cs" />
     <Compile Include="System\Convert.cs" />
     <Compile Include="System\DateTime.cs" />
+    <Compile Include="System\IWellKnownStringEqualityComparer.cs" />
     <Compile Include="System\MissingMethodException.cs" />
     <Compile Include="System\Globalization\DateTimeFormatInfo.cs" />
     <Compile Include="System\Guid.cs" />
