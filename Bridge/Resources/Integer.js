@@ -927,6 +927,16 @@
                     },
                     equalsT: function (v1, v2) {
                         return Bridge.unbox(v1, true) === Bridge.unbox(v2, true);
+                    },
+                    checkOverflow: function ( v ) {
+                        if( v < max && v > min ){
+                            return v;
+                        }
+
+                        let result = v % 2147483648;
+                        result *= ( v / max ) % 2 === 0 ? -1 : 1;
+
+                        return result;
                     }
                 }
             });
