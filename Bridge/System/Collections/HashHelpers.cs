@@ -1,7 +1,14 @@
+using System.Collections.Generic;
+using Bridge;
+
 namespace System.Collections
 {
     internal static class HashHelpers
     {
+        private static byte[] data = new byte[1024];
+        private static int currentIndex = 1024;
+        private static readonly object lockObj = new object();
+
         private const Int32 HashPrime = 101;
 
         public static readonly int RandomSeed = Guid.NewGuid().GetHashCode();
@@ -71,5 +78,44 @@ namespace System.Collections
         }
 
         public const int MaxPrimeArrayLength = 0x7FEFFFFD;
+
+        public static bool IsWellKnownEqualityComparer(object comparer)
+        {
+            if (comparer != null && comparer != EqualityComparer<string>.Default)
+                return comparer is IWellKnownStringEqualityComparer;
+            return true;
+        }
+
+        public static IEqualityComparer GetRandomizedEqualityComparer(object comparer)
+        {
+            if (comparer == null)
+                return (IEqualityComparer) new RandomizedObjectEqualityComparer();
+            if (comparer == EqualityComparer<string>.Default)
+                return (IEqualityComparer) new RandomizedStringEqualityComparer();
+            return (comparer as IWellKnownStringEqualityComparer)?.GetRandomizedEqualityComparer();
+        }
+
+        internal static long GetEntropy()
+        {
+            lock (HashHelpers.lockObj)
+            {
+                if (HashHelpers.currentIndex == 1024)
+                {
+                    GetCryptoBytes(HashHelpers.data);
+                    HashHelpers.currentIndex = 0;
+                }
+                long int64 = BitConverter.ToInt64(HashHelpers.data, HashHelpers.currentIndex);
+                HashHelpers.currentIndex += 8;
+                return int64;
+            }
+        }
+
+        public static void GetCryptoBytes( byte[] array ) {
+            Script.Write( @" var bytesArray = new Uint8Array(array.length);
+                         window.crypto.getRandomValues(bytesArray);
+                         for(var i = 0; i < array.length; i++) {
+                             array[i] = bytesArray[i];
+                          }" );
+        }
     }
 }
